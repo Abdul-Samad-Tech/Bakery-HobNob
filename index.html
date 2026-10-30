@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hobnob Bakery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Poppins:wght@300;400;500;600;700;800&family=Yellowtail&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-side">
+      <button class="pill delivery-pill" type="button">
+        <svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        <span class="pill-text"><small>DELIVERY</small>Abbot company ...</span>
+        <svg class="chevron" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+      <a class="pill phone-pill" href="tel:021111462662">
+        <svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+        <span class="pill-text">021-111-462-662</span>
+      </a>
+    </div>
+
+    <a class="logo" href="index.html">Hobnob</a>
+
+    <div class="header-side header-right">
+      <button class="round-button" type="button" aria-label="Cart">
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M3 4h2.5l2.3 11h10.4L20 8H6.5"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="round-button" type="button" aria-label="Menu">
+        <svg viewBox="0 0 24 24"><path d="M5 8h14M5 12h14M5 16h14"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <section class="banner">
+    <div class="banner-text" id="bannerText"></div>
+    <img class="banner-photo" src="img/banner.jpg" alt="Cakes, pizzas and fresh bread">
+    <div class="secure-payments">
+      <span>SECURE PAYMENTS</span>
+      <div class="card-logos"><b class="visa">VISA</b><i class="mastercard"></i></div>
+    </div>
+    <button class="banner-arrow arrow-left" id="prevSlide" type="button" aria-label="Previous slide">&#8249;</button>
+    <button class="banner-arrow arrow-right" id="nextSlide" type="button" aria-label="Next slide">&#8250;</button>
+    <div class="banner-dots" id="bannerDots"></div>
+  </section>
+
+  <nav class="categories" id="categoryBar"></nav>
+
+  <main class="container">
+    <form class="search-box" id="searchForm">
+      <svg class="search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg>
+      <input type="search" id="searchInput" placeholder="Search for Double Fudge Brownie..." autocomplete="off">
+      <button type="submit" aria-label="Search">
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </form>
+
+    <div class="offer">
+      <span class="offer-icon">
+        <svg viewBox="0 0 24 24"><path d="M18 6L6 18"/><circle cx="8" cy="8" r="2"/><circle cx="16" cy="16" r="2"/></svg>
+      </span>
+      <b>Flat</b>
+      <span class="offer-number">20</span>
+      <b>% Off</b>
+    </div>
+
+    <section class="popular">
+      <div class="section-title">
+        <span class="flame">&#128293;</span>
+        <div>
+          <h2>Popular Items</h2>
+          <p>Most ordered right now</p>
+        </div>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+  </main>
+
+  <a class="whatsapp" href="https://wa.me/922111462662" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"/><path d="M8.5 7.5c.3 3.5 3 6.2 6.5 6.5l1.3-1.6-2.2-1-1 .8a5 5 0 0 1-2.3-2.3l.8-1-1-2.2z"/></svg>
+  </a>
+
+  <div class="modal" id="modal" hidden>
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalName">
+      <button class="modal-close" id="closeModal" type="button" aria-label="Close">&times;</button>
+
+      <div class="modal-gallery">
+        <img id="modalImage" src="" alt="">
+        <div class="thumbs" id="modalThumbs"></div>
+      </div>
+
+      <div class="modal-info">
+        <h3 id="modalName"></h3>
+        <p class="modal-category">Category: <b id="modalCategory"></b></p>
+        <p class="modal-description" id="modalDescription"></p>
+        <p class="modal-prices"><del id="modalOldPrice"></del> <strong id="modalPrice"></strong></p>
+
+        <div class="quantity-box">
+          <button type="button" id="decreaseQuantity" aria-label="Decrease quantity">&minus;</button>
+          <span id="quantity">1</span>
+          <button type="button" id="increaseQuantity" aria-label="Increase quantity">+</button>
+        </div>
+
+        <button class="add-cart" id="addToCart" type="button">
+          <svg viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M3 4h2.5l2.3 11h10.4L20 8H6.5"/></svg>
+          Add to Cart
+        </button>
+
+        <ul class="features">
+          <li><span>&#127811;</span>Freshly Baked</li>
+          <li><span>&#127941;</span>Premium Ingredients</li>
+          <li><span>&#128737;&#65039;</span>Hygienically Prepared</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
